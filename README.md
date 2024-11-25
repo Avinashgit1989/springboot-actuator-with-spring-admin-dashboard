@@ -2,7 +2,7 @@
 
 This service is containing the CRUD operation of userDetails and implemented the Actuator endpoints to monitor the application.
 
-## Usage Of API
+## Usage Of User Service API
 
 To test the API, you can use the following `cURL` command:
 <details>
@@ -217,3 +217,19 @@ curl -X 'DELETE' \
 User deleted by UserId : 2
 ````
 </details>
+
+## Usage Of Actuator Endpoints API
+you can user the actuator Endpoints as below
+
+ - [Health Endpoints](http://localhost:8082/actuator/health)
+ - [Env Endpoints](http://localhost:8082/actuator/env)
+ - [Metrics Endpoints](http://localhost:8082/actuator/metrics)
+    
+## Usage Of Spring Admin Dashboard API   
+Start the Spring Admin server and use the below URL to get application
+
+ - [Admin server Application URL](http://localhost:8081/applications)
+    
+Now click on service name and click on instance url as shown below to get details.
+
+- [Instance URL to get Details of service](http://localhost:8081/instances/d1097339c326/details)
