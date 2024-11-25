@@ -1,0 +1,13 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: AdminServer
+  boot:
+    admin:
+      client:
+        enabled: true
+        instance:
+          management-url: http://localhost:8082/actuator
+          health-url: http://localhost:8082/actuator/health
+          service-url: http://localhost:8082

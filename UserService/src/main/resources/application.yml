@@ -1,0 +1,53 @@
+server:
+  port: 8082
+spring:
+  # added for Spring boot admin client
+  boot:
+    admin:
+      client:
+        url: http://localhost:8081
+        instance:
+          service-base-url: http://localhost:8082
+  application:
+    name: UserService
+
+  #Configuration for color full logs
+  output:
+    ansi:
+      enabled: ALWAYS
+
+    #JDBC DataBase Configuration
+  datasource:
+    url: jdbc:h2:file:~/data/userActuatorDB;RECOVER=TRUE
+    driverClassName: org.h2.Driver
+    username: sa
+    password: password
+  #JPA DataBase Configuration
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: create
+  #H2 DataBase Configuration
+  h2:
+    console:
+      enabled: true
+      settings:
+        web-allow-others: true
+# Enable all actuator endpoints
+management:
+  endpoints:
+    web:
+      base-path: "/actuator"
+      exposure:
+        include: "*"       ## it will include all endpoints. if you want specific add like health, metrics, env
+  # Set health endpoint details to show complete information
+  endpoint:
+    health:
+      show-details: always
+
+#Logging
+logging:
+  level:
+    root: INFO
+  charset:
+    file: ${users.dir}/logs/user-service.log
