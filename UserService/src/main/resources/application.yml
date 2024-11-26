@@ -7,6 +7,8 @@ spring:
       client:
         url: http://localhost:8081
         instance:
+          management-url: http://localhost:8082/actuator
+          health-url: http://localhost:8082/actuator/health
           service-base-url: http://localhost:8082
   application:
     name: UserService
@@ -39,15 +41,15 @@ management:
     web:
       base-path: "/actuator"
       exposure:
-        include: "*"       ## it will include all endpoints. if you want specific add like health, metrics, env
+        include: "*"     ## it will include all endpoints. if you want specific add like health, metrics, env
   # Set health endpoint details to show complete information
   endpoint:
+    beans:
+      enabled: true
     health:
-      show-details: always
+      show-details: always   # Enables detailed health information
 
 #Logging
 logging:
   level:
     root: INFO
-  charset:
-    file: ${users.dir}/logs/user-service.log
